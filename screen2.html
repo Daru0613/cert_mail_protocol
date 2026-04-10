@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sovereign Security | Digital Vault</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary": "#515f74",
+                      "surface-bright": "#f8f9ff",
+                      "on-tertiary-container": "#3d89c3",
+                      "on-primary-container": "#5a84c8",
+                      "on-tertiary": "#ffffff",
+                      "surface-tint": "#325ea0",
+                      "secondary-fixed-dim": "#b9c7df",
+                      "secondary-fixed": "#d5e3fc",
+                      "on-secondary": "#ffffff",
+                      "on-error": "#ffffff",
+                      "inverse-surface": "#213145",
+                      "surface-variant": "#d3e4fe",
+                      "on-primary-fixed": "#001b3d",
+                      "primary": "#000000",
+                      "inverse-on-surface": "#eaf1ff",
+                      "primary-container": "#001b3d",
+                      "error": "#ba1a1a",
+                      "on-surface": "#0b1c30",
+                      "on-secondary-fixed": "#0d1c2e",
+                      "surface-container-lowest": "#ffffff",
+                      "surface": "#f8f9ff",
+                      "on-secondary-container": "#57657a",
+                      "on-secondary-fixed-variant": "#3a485b",
+                      "on-tertiary-fixed-variant": "#004b74",
+                      "on-primary": "#ffffff",
+                      "surface-container": "#e5eeff",
+                      "error-container": "#ffdad6",
+                      "tertiary-fixed": "#cde5ff",
+                      "outline": "#76777d",
+                      "on-background": "#0b1c30",
+                      "primary-fixed": "#d6e3ff",
+                      "primary-fixed-dim": "#a9c7ff",
+                      "surface-container-low": "#eff4ff",
+                      "surface-dim": "#cbdbf5",
+                      "background": "#f8f9ff",
+                      "tertiary-container": "#001d32",
+                      "tertiary-fixed-dim": "#94ccff",
+                      "outline-variant": "#c6c6cd",
+                      "on-error-container": "#93000a",
+                      "on-primary-fixed-variant": "#114686",
+                      "secondary-container": "#d5e3fc",
+                      "surface-container-highest": "#d3e4fe",
+                      "on-surface-variant": "#45464d",
+                      "inverse-primary": "#a9c7ff",
+                      "surface-container-high": "#dce9ff",
+                      "tertiary": "#000000",
+                      "on-tertiary-fixed": "#001d32"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "fontFamily": {
+                      "headline": ["Inter"],
+                      "body": ["Inter"],
+                      "label": ["Inter"]
+              }
+            },
+          }
+        }
+      </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(24px);
+        }
+        .encryption-pulse {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #325ea0;
+            box-shadow: 0 0 0 rgba(50, 94, 160, 0.4);
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(50, 94, 160, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(50, 94, 160, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(50, 94, 160, 0); }
+        }
+      </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-slate-50/80 dark:bg-slate-950/80 backdrop-blur-xl flex justify-between items-center px-6 h-16 w-full shadow-sm">
+<div class="flex items-center gap-4">
+<span class="text-xl font-bold tracking-tighter text-slate-900 dark:text-slate-50">Sovereign Security</span>
+<div class="hidden md:flex items-center gap-2 px-3 py-1 bg-tertiary-container rounded-full">
+<div class="encryption-pulse"></div>
+<span class="text-[10px] font-bold tracking-widest uppercase text-on-tertiary-container">Encryption Active</span>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex items-center gap-8">
+<a class="text-blue-600 dark:text-blue-400 font-semibold font-inter tracking-tight" href="#">Login</a>
+<a class="text-slate-500 dark:text-slate-400 font-inter tracking-tight hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors px-2 py-1 rounded" href="#">Issuance</a>
+<a class="text-slate-500 dark:text-slate-400 font-inter tracking-tight hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors px-2 py-1 rounded" href="#">Signature</a>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-slate-900 dark:text-slate-50 cursor-pointer active:scale-95 duration-200" data-icon="verified_user">verified_user</span>
+<span class="material-symbols-outlined text-slate-900 dark:text-slate-50 cursor-pointer active:scale-95 duration-200" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined text-slate-900 dark:text-slate-50 cursor-pointer active:scale-95 duration-200" data-icon="account_circle">account_circle</span>
+</div>
+</div>
+</nav>
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-screen w-64 border-r border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 flex flex-col pt-20 pb-6 px-4 z-40 hidden lg:flex">
+<div class="mb-8 px-4">
+<div class="flex items-center gap-3 mb-2">
+<img alt="Security Officer Profile" class="w-10 h-10 rounded-full object-cover grayscale" data-alt="Professional security officer portrait with a serious, confident expression, soft corporate lighting, grey background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlhcPI8q2om7odvnXQdYjb2dkH2YWY4nltTtPGWlhoZizt657kA5A0-jZu1Ce6OEii26RxiMEoqNpQwD0QPLwgOhnSpb0xfgj8kUi9NeEjA_1HVLFDViuYvYQo_ax-mHPKMpX8qdKbUsRW2XyE6413hzg0Sc3rgVAmzDZCK4qPjKAa27mRDsJv1e_hO4fkRZTeemnlZMCieEqA2HyMR9qerYlenKi9K5XF_pw1_aKXpdprdByiUabJSNXwLyw5UZBBpEDviLp_-jeQ"/>
+<div>
+<h3 class="text-lg font-black text-slate-900 dark:text-slate-50 uppercase tracking-widest">The Vault</h3>
+<p class="text-[10px] text-blue-700 dark:text-blue-400 font-bold uppercase tracking-widest">Identity Verified</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 bg-slate-200/50 dark:bg-slate-800/50 text-slate-900 dark:text-slate-50 border-r-2 border-blue-600 transition-all duration-300 ease-in-out font-inter text-sm font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="lock_open">lock_open</span> Login
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-50 hover:bg-slate-100 dark:hover:bg-slate-900 transition-all duration-300 ease-in-out font-inter text-sm font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="workspace_premium">workspace_premium</span> Issuance
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-50 hover:bg-slate-100 dark:hover:bg-slate-900 transition-all duration-300 ease-in-out font-inter text-sm font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="draw">draw</span> Signature
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-50 hover:bg-slate-100 dark:hover:bg-slate-900 transition-all duration-300 ease-in-out font-inter text-sm font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="mail_lock">mail_lock</span> Secure Mail
+            </a>
+</nav>
+<div class="mt-auto space-y-1 border-t border-slate-200 dark:border-slate-800 pt-4">
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-50 transition-all duration-300 font-inter text-xs uppercase tracking-wider" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="settings">settings</span> Security Settings
+            </a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 dark:text-slate-400 hover:text-error transition-all duration-300 font-inter text-xs uppercase tracking-wider" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="logout">logout</span> Logout
+            </a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="pt-24 pb-12 px-6 lg:pl-72 max-w-[1600px] mx-auto min-h-screen">
+<div class="grid grid-cols-12 gap-8">
+<!-- Dashboard Header Section -->
+<header class="col-span-12 lg:col-span-4 mb-8">
+<label class="text-[11px] font-bold uppercase tracking-[0.2em] text-on-surface-variant mb-4 block">Dashboard / Security Home</label>
+<h1 class="text-4xl md:text-5xl font-black text-on-surface tracking-tighter leading-none mb-6">
+                    Sovereign <br/>Authentication.
+                </h1>
+<p class="text-on-surface-variant text-lg max-w-sm leading-relaxed">
+                    Welcome to your private security operations center. Access identity vaults, manage cryptographic assets, and communicate through electronic envelopes.
+                </p>
+<div class="mt-10 p-6 bg-surface-container-low rounded-xl border border-outline-variant/10">
+<div class="flex items-center justify-between mb-4">
+<span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Global Status</span>
+<span class="px-3 py-1 bg-tertiary-container text-on-tertiary-container rounded-full text-[10px] font-black uppercase tracking-widest flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span> Secure
+                        </span>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between items-center text-sm">
+<span class="text-on-surface-variant">Encryption Standard</span>
+<span class="font-mono font-bold text-on-surface">AES-256-GCM</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span class="text-on-surface-variant">Active Sessions</span>
+<span class="font-mono font-bold text-on-surface">1 Authorized</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Grid Content -->
+<div class="col-span-12 lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Authentication Card (Login) -->
+<section class="bg-surface-container-lowest p-8 rounded-xl shadow-sm border border-outline-variant/10 flex flex-col">
+<div class="mb-8">
+<h2 class="text-xl font-bold tracking-tight mb-1 text-on-surface">Vault Login</h2>
+<p class="text-xs text-on-surface-variant">Select your preferred authentication gateway</p>
+</div>
+<div class="space-y-4 mb-8">
+<button class="w-full flex items-center justify-center gap-3 py-3 px-4 bg-surface-container-low hover:bg-surface-container-highest transition-colors rounded-xl text-sm font-semibold text-on-surface border border-outline-variant/20">
+<img alt="Google" class="w-5 h-5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWXhui21Fp6SpEGMCLAQTHeqYZuYFkbEOn-A01avMLW2EQpUN4x68HBXFsjRoBEJFKUkxSPfif4zoX2JFv6Ro4az3BAIyuujPXnG7B8dmJmZTgLPi0kPxBfwnbDixXwFFQ4Ue39qeoagVfr0YMxrpfY7TWf-bG-RqGsuHqxIWjx6lWQF93L62jvqsQukWAfbdSoKBkd6NOgovgTfx7sPya_B6JwhYMpXOz3QjrBL2NgTh_Q83u2DlyLY9zdt6zKxIYgwUtBEPAbLHW"/>
+                            Continue with Google
+                        </button>
+<div class="grid grid-cols-2 gap-4">
+<button class="flex items-center justify-center gap-2 py-3 px-4 bg-surface-container-low hover:bg-surface-container-highest transition-colors rounded-xl text-xs font-semibold text-on-surface border border-outline-variant/20">
+<span class="material-symbols-outlined text-lg" data-icon="terminal">terminal</span> GitHub
+                            </button>
+<button class="flex items-center justify-center gap-2 py-3 px-4 bg-surface-container-low hover:bg-surface-container-highest transition-colors rounded-xl text-xs font-semibold text-on-surface border border-outline-variant/20">
+<span class="material-symbols-outlined text-lg" data-icon="cloud">cloud</span> Microsoft
+                            </button>
+</div>
+</div>
+<div class="relative mb-8">
+<div class="absolute inset-0 flex items-center"><div class="w-full border-t border-outline-variant/20"></div></div>
+<div class="relative flex justify-center text-xs uppercase tracking-widest"><span class="bg-surface-container-lowest px-2 text-on-surface-variant">Or via credentials</span></div>
+</div>
+<form class="space-y-4">
+<div>
+<label class="block text-[10px] font-bold uppercase tracking-widest text-on-surface-variant mb-2">Vault ID</label>
+<input class="w-full bg-surface-container-low border-none rounded-xl py-3 px-4 focus:ring-2 focus:ring-surface-tint/40 text-sm" placeholder="e.g. ALPHA-9920" type="text"/>
+</div>
+<div>
+<label class="block text-[10px] font-bold uppercase tracking-widest text-on-surface-variant mb-2">Access Key</label>
+<input class="w-full bg-surface-container-low border-none rounded-xl py-3 px-4 focus:ring-2 focus:ring-surface-tint/40 text-sm" placeholder="••••••••••••" type="password"/>
+</div>
+<button class="w-full py-4 bg-primary text-on-primary rounded-xl font-bold text-sm tracking-widest uppercase hover:opacity-90 transition-opacity mt-4">Initialize Access</button>
+</form>
+</section>
+<!-- Certificate Issuance (Action Focused) -->
+<section class="bg-surface-container-low p-8 rounded-xl border border-outline-variant/10">
+<div class="flex items-center justify-between mb-8">
+<div>
+<h2 class="text-xl font-bold tracking-tight mb-1 text-on-surface">Certificate Issuance</h2>
+<p class="text-xs text-on-surface-variant">Generate server-signed key pairs</p>
+</div>
+<span class="material-symbols-outlined text-blue-700 p-2 bg-blue-100 rounded-full" data-icon="workspace_premium" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+</div>
+<div class="space-y-6">
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/10">
+<div class="flex items-center gap-4 mb-4">
+<div class="w-10 h-10 rounded-lg bg-blue-600/10 flex items-center justify-center text-blue-600">
+<span class="material-symbols-outlined" data-icon="key">key</span>
+</div>
+<div>
+<h4 class="text-sm font-bold text-on-surface">Step 1: RSA Key Generation</h4>
+<p class="text-[11px] text-on-surface-variant">4096-bit local entropy generation</p>
+</div>
+</div>
+<button class="w-full py-2 bg-secondary-container text-on-secondary-fixed-variant rounded-lg text-xs font-bold uppercase tracking-wider">Execute Keygen</button>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/10 opacity-50">
+<div class="flex items-center gap-4 mb-4">
+<div class="w-10 h-10 rounded-lg bg-slate-600/10 flex items-center justify-center text-slate-600">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+</div>
+<div>
+<h4 class="text-sm font-bold text-on-surface">Step 2: CSR Request</h4>
+<p class="text-[11px] text-on-surface-variant">Submit for server verification</p>
+</div>
+</div>
+<button class="w-full py-2 bg-surface-container-highest text-on-surface-variant rounded-lg text-xs font-bold uppercase tracking-wider cursor-not-allowed" disabled="">Pending Step 1</button>
+</div>
+<div class="p-4 bg-blue-600/5 rounded-lg border border-blue-600/10 flex items-start gap-3">
+<span class="material-symbols-outlined text-blue-600 text-sm mt-0.5" data-icon="info">info</span>
+<p class="text-[10px] text-on-primary-container leading-relaxed">
+<strong>Compliance Note:</strong> Certificates generated here are compliant with FIPS 140-2 Level 3 standards.
+                            </p>
+</div>
+</div>
+</section>
+<!-- Digital Signature Logic -->
+<section class="bg-surface-container-lowest p-8 rounded-xl shadow-sm border border-outline-variant/10">
+<div class="mb-8">
+<h2 class="text-xl font-bold tracking-tight mb-1 text-on-surface">Signature Authentication</h2>
+<p class="text-xs text-on-surface-variant">Passwordless login using your hardware keys</p>
+</div>
+<div class="space-y-4">
+<label class="block text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Select Certificate</label>
+<div class="relative group cursor-pointer">
+<div class="flex items-center justify-between p-4 bg-surface-container-low rounded-xl border border-outline-variant/20 hover:border-surface-tint transition-all">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-tertiary-container" data-icon="verified_user">verified_user</span>
+<div>
+<div class="text-sm font-bold text-on-surface">SOV-KEY-MAIN-409</div>
+<div class="text-[10px] text-on-surface-variant font-mono uppercase">Exp: 12 OCT 2025</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+<div class="pt-4">
+<div class="flex items-center justify-center p-12 border-2 border-dashed border-outline-variant/30 rounded-2xl bg-surface/50 group hover:border-surface-tint/50 transition-all">
+<div class="text-center">
+<span class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-surface-tint mb-3 block" data-icon="upload_file">upload_file</span>
+<span class="text-xs font-bold text-on-surface">Drop Private Key (.pem)</span>
+<p class="text-[10px] text-on-surface-variant mt-1">Files are decrypted locally on-device</p>
+</div>
+</div>
+</div>
+<button class="w-full py-4 bg-on-primary-fixed-variant text-on-primary rounded-xl font-bold text-sm tracking-widest uppercase hover:opacity-90 transition-opacity">
+                            Authorize Signature
+                        </button>
+</div>
+</section>
+<!-- Secure Communication / Electronic Envelopes -->
+<section class="bg-surface p-8 rounded-xl border border-outline-variant/10 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-blue-600/5 rounded-full -mr-16 -mt-16 blur-3xl"></div>
+<div class="flex items-center justify-between mb-8">
+<div>
+<h2 class="text-xl font-bold tracking-tight mb-1 text-on-surface">Electronic Envelopes</h2>
+<p class="text-xs text-on-surface-variant">Encrypted peer-to-peer messaging</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="mail_lock">mail_lock</span>
+</div>
+<div class="space-y-4">
+<div class="space-y-2">
+<div class="flex items-center justify-between px-2">
+<span class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Active Inbound</span>
+<span class="text-[10px] font-bold text-blue-600 uppercase">2 New</span>
+</div>
+<!-- Envelope List Item -->
+<div class="p-4 bg-surface-container-lowest rounded-xl border-l-4 border-blue-600 shadow-sm flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-blue-700" data-icon="mark_email_unread">mark_email_unread</span>
+<div>
+<div class="text-xs font-bold text-on-surface">Node_04_Signature.env</div>
+<div class="text-[10px] text-on-surface-variant">Received 2m ago • 45kb</div>
+</div>
+</div>
+<button class="p-2 hover:bg-surface-container-low rounded-lg transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="lock_open">lock_open</span>
+</button>
+</div>
+<div class="p-4 bg-surface-container-low/50 rounded-xl flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant/50" data-icon="drafts">drafts</span>
+<div>
+<div class="text-xs font-bold text-on-surface-variant/80">Protocol_Update.env</div>
+<div class="text-[10px] text-on-surface-variant/50">Opened 4h ago</div>
+</div>
+</div>
+</div>
+</div>
+<div class="pt-6">
+<button class="w-full flex items-center justify-center gap-2 py-4 bg-surface-container-highest text-on-surface font-black text-xs tracking-widest uppercase rounded-xl hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined" data-icon="add_box">add_box</span>
+                                Compose Envelope
+                            </button>
+</div>
+</div>
+</section>
+</div>
+</div>
+</main>
+<!-- Contextual Footer -->
+<footer class="lg:pl-64 border-t border-outline-variant/10 py-8 px-6 bg-surface-container-low/30">
+<div class="max-w-[1600px] mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex items-center gap-8">
+<span class="text-[11px] font-black uppercase tracking-[0.2em] text-on-surface-variant">© 2024 Sovereign Security Vault</span>
+<nav class="flex gap-6">
+<a class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant hover:text-surface-tint" href="#">Protocol</a>
+<a class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant hover:text-surface-tint" href="#">Privacy</a>
+<a class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant hover:text-surface-tint" href="#">Audit Logs</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex -space-x-2">
+<img alt="Security Team Member 1" class="w-8 h-8 rounded-full border-2 border-surface object-cover" data-alt="Portrait of a male security engineer with glasses, soft studio lighting, technical background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7ZEBg_11wskl0XwPmdgy5a8pi7Zg_U41q1LdrHKmwXAjbQ_zhMQ00wI3fnqd62XsBDs4-03ywKskdHnlH2-nKWFcsB9SbP4GMXN4V7uiTKjO3ww77le1iuFSQeoi_1K9mjeO2UJV8mzYTlVb3kxn8zo9BKj-zCtVcz-5AKEzNehBq6WIBBWL55_NvUZjDzjTWnLFk3V54WOrkj1Z0D_i0uRz6jLEIQlQPzo4MYkfol_oxIJ4S_-Tg_RhV9zmH0tjwjeyjeAUkRyr7"/>
+<img alt="Security Team Member 2" class="w-8 h-8 rounded-full border-2 border-surface object-cover" data-alt="Portrait of a female cybersecurity specialist, professional lighting, modern office background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlduy06vqBNYU0ClDlFhxFQ-ao22ECjDRLomWcA1YJj6sFPou2TFmK88r6iyX6rbrrIgmNZ1ohMaEfnDITWhiDT2lT2dB-1orWdvLhOEDFp9T_yi0iGZk46ehQ-svacWpz8-vtod8Sd-cAqI_OADbqCYL1q1HJaFeQSzA_9yBPagDwbDvxM-eequKCDCqdD-vI3wn1f64oqsv5JD-In7Cv0eLZBe0bFeflqFN0hKSEjG2VbBLR4aW-G8ohC7vOKpf6UvX9sZUt2i66"/>
+<div class="w-8 h-8 rounded-full border-2 border-surface bg-surface-container-highest flex items-center justify-center text-[10px] font-bold">+12</div>
+</div>
+<span class="text-[11px] font-bold text-on-surface-variant">Trusted by Global Entities</span>
+</div>
+</div>
+</footer>
+<!-- Mobile BottomNavBar -->
+<nav class="md:hidden fixed bottom-0 w-full bg-slate-50 dark:bg-slate-950 px-6 py-3 flex justify-around items-center border-t border-slate-200 dark:border-slate-800 z-50">
+<div class="flex flex-col items-center gap-1 text-blue-600 font-semibold">
+<span class="material-symbols-outlined" data-icon="lock_open">lock_open</span>
+<span class="text-[10px] uppercase font-bold tracking-tighter">Login</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined" data-icon="workspace_premium">workspace_premium</span>
+<span class="text-[10px] uppercase font-bold tracking-tighter">Issue</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined" data-icon="draw">draw</span>
+<span class="text-[10px] uppercase font-bold tracking-tighter">Sign</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined" data-icon="mail_lock">mail_lock</span>
+<span class="text-[10px] uppercase font-bold tracking-tighter">Mail</span>
+</div>
+</nav>
+</body></html>

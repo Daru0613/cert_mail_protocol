@@ -1,0 +1,3 @@
+{
+  "/api/pki/verify/route": "app/api/pki/verify/route.js"
+}

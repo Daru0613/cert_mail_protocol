@@ -1,0 +1,3 @@
+module.exports=[49575,a=>{"use strict";var b=a.i(7997);a.s(["default",0,function({children:a}){return(0,b.jsxs)("html",{lang:"ko",className:"light",children:[(0,b.jsxs)("head",{children:[(0,b.jsx)("link",{href:"https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap",rel:"stylesheet"}),(0,b.jsx)("link",{href:"https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap",rel:"stylesheet"})]}),(0,b.jsx)("body",{className:"bg-surface text-on-surface",children:a})]})},"metadata",0,{title:"소버린 시큐리티 | 디지털 금고",description:"디지털 보안 금고 시스템"}])},62243,a=>{a.n(a.i(49575))}];
+
+//# sourceMappingURL=src_app_layout_jsx_0r120cu._.js.map
