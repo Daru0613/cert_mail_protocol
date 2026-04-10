@@ -7,10 +7,19 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Build and Production
 node_modules
 dist
 dist-ssr
+out
+.next
+.serverless
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 *.local
+generate_ca.cjs
 
 # Editor directories and files
 .vscode/*

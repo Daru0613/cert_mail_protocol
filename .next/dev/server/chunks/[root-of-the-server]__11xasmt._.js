@@ -178,7 +178,6 @@ async function POST(req) {
                 status: 400
             });
         }
-        // Time checking: Prevents replay attacks (time must be within 60 seconds)
         const serverTime = Date.now();
         const clientTime = parseInt(time, 10);
         const timeDiffMs = Math.abs(serverTime - clientTime);
@@ -189,7 +188,7 @@ async function POST(req) {
                 status: 400
             });
         }
-        // PPT 조건대로 message는 userId + time 의 문자열 형태로 약속
+        //message는 userId + time 의 문자열 형태로
         const message = `${userId}_${time}`;
         const isValid = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$crypto$2f$forgeServer$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["verifySignature"])(message, signature, userCertPem);
         if (!isValid) {

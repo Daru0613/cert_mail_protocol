@@ -9,7 +9,6 @@ export async function POST(req) {
       return NextResponse.json({ error: 'Missing parameters for verification' }, { status: 400 });
     }
 
-    // Time checking: Prevents replay attacks (time must be within 60 seconds)
     const serverTime = Date.now();
     const clientTime = parseInt(time, 10);
     const timeDiffMs = Math.abs(serverTime - clientTime);
@@ -20,7 +19,7 @@ export async function POST(req) {
       }, { status: 400 });
     }
 
-    // PPT 조건대로 message는 userId + time 의 문자열 형태로 약속
+    //message는 userId + time 의 문자열 형태로
     const message = `${userId}_${time}`;
     const isValid = verifySignature(message, signature, userCertPem);
     
