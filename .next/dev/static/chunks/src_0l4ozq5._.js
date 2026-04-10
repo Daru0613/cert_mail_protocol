@@ -244,7 +244,7 @@ function Page() {
             setUserCert(null);
             setCertInfo(null);
             setIsSecureAuthenticated(false);
-            localStorage.removeItem('pki_private_key');
+            localStorage.removeItem('encryptedPrivateKey');
         } catch (err) {
             alert("인증서 삭제 실패: " + err.message);
         } finally{
